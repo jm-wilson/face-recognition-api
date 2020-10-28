@@ -29,7 +29,7 @@ app.post('/imageurl', image.handleApiCall);
 
 app.put('/image', image.handleImage(knex));
 
-const PORT = process.env.PORT; // Make sure to set PORT environment variable
+const PORT = process.env.PORT || 3000; // Make sure to set PORT environment variable
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
