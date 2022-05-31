@@ -16,8 +16,6 @@ const handleApiCall = (req, res) => {
 const handleImage = (knex) => (req, res) => {
   const { id } = req.body;
 
-  console.log(`User ${id} submitted an image`);
-
   knex('users')
     .where('id', '=', id)
     .increment('entries', 1)

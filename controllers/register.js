@@ -1,5 +1,3 @@
-const { response } = require('express');
-
 const handleRegister = (knex, bcrypt) => (req, res) => {
   const { email, name, password } = req.body;
 
