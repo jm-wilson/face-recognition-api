@@ -16,11 +16,11 @@ const handleRegister = (knex, bcrypt) => (req, res) => {
         })
         .into('login')
         .returning('email')
-        .then((loginEmail) => {
+        .then((data) => {
           return trx('users')
             .returning('*')
             .insert({
-              email: loginEmail[0],
+              email: data[0].email,
               name: name,
               joined: new Date(),
             })
