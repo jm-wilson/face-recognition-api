@@ -14,11 +14,11 @@ const handleApiCall = (req, res) => {
 };
 
 const handleImage = (knex) => (req, res) => {
-  const { id } = req.body;
+  const { id, points = 1 } = req.body;
 
   knex('users')
     .where('id', '=', id)
-    .increment('entries', 1)
+    .increment('entries', points)
     .returning('entries')
     .then((data) => {
       res.json(data[0].entries);
